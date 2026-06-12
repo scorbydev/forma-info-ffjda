@@ -349,3 +349,17 @@ python -m compileall -q 02_sql_licence_diagnostic 03_devops_ci_cd 04_pdf_ocr_age
 ```
 
 Limite restante: la verification OpenRouter reelle depend d'une cle `OPENROUTER_API_KEY`, du reseau et d'un modele OpenRouter compatible vision. Si le modele configure ne supporte pas les images, mettre a jour `OPENROUTER_MODEL` dans `.env`.
+
+## Documentation modeles OCR/vision
+
+Date: 2026-06-12.
+
+Ajout dans `04_pdf_ocr_agent/README.md` d'une shortlist de modeles API gratuits/directs a tester pour l'atelier:
+
+- `qwen/qwen2.5-vl-32b-instruct:free`
+- `qwen/qwen2.5-vl-72b-instruct:free`
+- `mistralai/mistral-small-3.1-24b-instruct:free`
+- `moonshotai/kimi-vl-a3b-thinking:free`
+- Hugging Face Inference API via `HF_MODEL_ID`
+
+`.env.example` pointe maintenant par defaut vers `qwen/qwen2.5-vl-32b-instruct:free`, avec rappel que la disponibilite du tier gratuit doit etre testee la veille.

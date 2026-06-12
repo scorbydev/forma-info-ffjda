@@ -77,7 +77,7 @@ Les donnees sont fictives. Si vous adaptez ce repo, remplacez toute donnee reell
 
 ## OCR: OpenRouter vision, Hugging Face et offline
 
-L'atelier OCR vise une demo OpenRouter vision sur PDF/image: le PDF est rendu en images, envoye au modele via OpenRouter, puis la reponse JSON est validee et exportee en CSV. OpenRouter doit etre teste la veille de la formation, notamment le modele gratuit configure dans `.env.example`.
+L'atelier OCR vise une demo OpenRouter vision sur PDF/image: le PDF est rendu en images, envoye au modele via OpenRouter, puis la reponse JSON est validee et exportee en CSV. OpenRouter doit etre teste la veille de la formation, notamment le modele gratuit configure dans `.env.example` et les alternatives listees dans `04_pdf_ocr_agent/README.md`.
 
 Si OpenRouter est indisponible, Hugging Face est le fallback API prevu via `HF_API_TOKEN` et `HF_MODEL_ID`. Si aucune API n'est disponible, le provider `sample` permet de continuer offline a partir de sorties OCR texte simulees.
 

@@ -39,6 +39,53 @@ python 04_pdf_ocr_agent/ocr_agent/cli.py --input 04_pdf_ocr_agent/samples/factur
 
 Si le modele OpenRouter choisi ne supporte pas les images, choisir un modele vision disponible dans le dashboard OpenRouter et mettre a jour `OPENROUTER_MODEL`.
 
+## Modeles API a tester pour la demo OCR/vision
+
+La disponibilite des modeles gratuits peut changer. Tester le modele retenu la veille de la formation avec un vrai appel API sur `facture_stage_001.pdf`.
+
+### 1. Qwen2.5-VL 32B via OpenRouter
+
+- Endpoint: `https://openrouter.ai/api/v1/chat/completions`
+- Modele: `qwen/qwen2.5-vl-32b-instruct:free`
+- Usage: tres bon candidat principal pour OCR/vision gratuit.
+- Points forts: compatible API OpenAI/OpenRouter, vision native, bon niveau OCR dans le tier gratuit.
+- Limite: quotas et throttling possibles en free, a verifier avant atelier.
+
+### 2. Qwen2.5-VL 72B via OpenRouter
+
+- Endpoint: `https://openrouter.ai/api/v1/chat/completions`
+- Modele: `qwen/qwen2.5-vl-72b-instruct:free`
+- Usage: variante plus puissante pour comparer deux tailles de modele.
+- Limite: disponibilite parfois plus variable, throttling plus frequent.
+
+### 3. Mistral Small 3.1 24B via OpenRouter
+
+- Endpoint: `https://openrouter.ai/api/v1/chat/completions`
+- Modele: `mistralai/mistral-small-3.1-24b-instruct:free`
+- Usage: bon modele multimodal pour documents textuels et captures.
+- Angle pedagogique: modele Mistral, pertinent pour une formation en France.
+
+### 4. Kimi VL A3B via OpenRouter
+
+- Endpoint: `https://openrouter.ai/api/v1/chat/completions`
+- Modele: `moonshotai/kimi-vl-a3b-thinking:free`
+- Usage: modele leger pour montrer OCR + comprehension visuelle avec un cout faible.
+- Limite: verifier la disponibilite et la qualite sur factures scannees.
+
+### 5. Hugging Face Inference API
+
+- Endpoint: `https://api-inference.huggingface.co/models/{model_id}`
+- Variables: `HF_API_TOKEN` et `HF_MODEL_ID`
+- Usage: fallback API si OpenRouter est indisponible.
+- Modeles a explorer: familles vision/OCR comme InternVL, GOT-OCR 2.0 ou autre modele compatible Inference API.
+- Limite: le format exact de reponse depend du modele choisi; verifier avec un test court avant atelier.
+
+Ordre conseille pour la formation:
+
+1. Tester `qwen/qwen2.5-vl-32b-instruct:free`.
+2. Garder `mistralai/mistral-small-3.1-24b-instruct:free` comme alternative pedagogique.
+3. Garder `sample` comme fallback offline garanti.
+
 ## Demo offline
 
 ```bash
