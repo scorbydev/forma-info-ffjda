@@ -45,6 +45,8 @@ python 02_sql_licence_diagnostic/create_db.py
 
 Verifier `OPENROUTER_API_KEY`, le modele et les quotas. Si l'erreur persiste, utiliser Hugging Face ou `sample`.
 
+Si OpenRouter retourne une erreur sur une entree PDF/image, verifier que `OPENROUTER_MODEL` pointe vers un modele vision compatible. Le script convertit les PDF en images avant appel API; le modele doit accepter les messages avec `image_url`.
+
 ## Hugging Face API erreur
 
 Verifier `HF_API_TOKEN` et `HF_MODEL_ID`. Si le modele n'est pas configure, le provider doit retourner une erreur claire.

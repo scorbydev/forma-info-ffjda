@@ -320,3 +320,32 @@ Controle final:
 - CSV de demo absent;
 - faux PDF pedagogiques presents;
 - scan simple de secrets: pas de secret en dur, uniquement la variable locale `token = os.getenv("HF_API_TOKEN")` et la mention documentee dans ce rapport.
+
+## Correctif OCR vision OpenRouter
+
+Date: 2026-06-12.
+
+Constat: le provider OpenRouter initial envoyait seulement le contenu texte du fichier d'entree. Cela ne suffisait pas pour une demonstration OCR/vision sur PDF.
+
+Corrections appliquees:
+
+- `requirements.txt`: ajout de `PyMuPDF`.
+- `.env.example`: ajout de `OCR_MAX_PAGES=2`.
+- `04_pdf_ocr_agent/ocr_agent/provider_openrouter.py`: support PDF et images.
+  - `.pdf`: rendu des pages en PNG via PyMuPDF, puis envoi au modele OpenRouter via `image_url` data URL.
+  - `.png`, `.jpg`, `.jpeg`, `.webp`: envoi direct comme `image_url` data URL.
+  - `.txt`: reste supporte pour extraction depuis texte OCR.
+- `04_pdf_ocr_agent/ocr_agent/pipeline.py`: le provider `sample` est limite explicitement aux fichiers `.txt`.
+- `04_pdf_ocr_agent/app_streamlit.py`: upload accepte maintenant `.txt`, `.pdf`, `.png`, `.jpg`, `.jpeg`, `.webp`.
+- Documentation mise a jour: README racine, README atelier 4, prerequis, troubleshooting, prompt atelier 4 et skill `pdf-extraction`.
+
+Verification locale sans appel API:
+
+```text
+PyMuPDF installe : OK
+Rendu 04_pdf_ocr_agent/samples/facture_stage_001.pdf vers data:image/png;base64 : OK
+python -m pytest : 9 passed, 1 xfailed
+python -m compileall -q 02_sql_licence_diagnostic 03_devops_ci_cd 04_pdf_ocr_agent : OK
+```
+
+Limite restante: la verification OpenRouter reelle depend d'une cle `OPENROUTER_API_KEY`, du reseau et d'un modele OpenRouter compatible vision. Si le modele configure ne supporte pas les images, mettre a jour `OPENROUTER_MODEL` dans `.env`.

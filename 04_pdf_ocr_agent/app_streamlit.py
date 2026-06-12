@@ -13,7 +13,7 @@ from ocr_agent.pipeline import extract_with_provider
 st.set_page_config(page_title="OCR agentique sandbox", layout="wide")
 st.title("OCR agentique sandbox")
 
-uploaded = st.file_uploader("Fichier texte OCR fictif", type=["txt"])
+uploaded = st.file_uploader("Document fictif", type=["txt", "pdf", "png", "jpg", "jpeg", "webp"])
 document_type = st.selectbox("Type document", ["invoice", "license"])
 provider = st.selectbox("Provider", ["sample", "openrouter", "huggingface"])
 

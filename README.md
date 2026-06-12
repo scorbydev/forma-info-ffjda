@@ -75,14 +75,22 @@ Ne jamais commiter de secret. Copier `.env.example` vers `.env` seulement en loc
 
 Les donnees sont fictives. Si vous adaptez ce repo, remplacez toute donnee reelle par des exemples anonymises ou synthetiques.
 
-## OCR: OpenRouter, Hugging Face et offline
+## OCR: OpenRouter vision, Hugging Face et offline
 
-L'atelier OCR fonctionne sans API via le provider `sample`. OpenRouter est optionnel et doit etre teste la veille de la formation, notamment le modele gratuit configure dans `.env.example`. Si OpenRouter est indisponible, Hugging Face est le fallback API prevu via `HF_API_TOKEN` et `HF_MODEL_ID`.
+L'atelier OCR vise une demo OpenRouter vision sur PDF/image: le PDF est rendu en images, envoye au modele via OpenRouter, puis la reponse JSON est validee et exportee en CSV. OpenRouter doit etre teste la veille de la formation, notamment le modele gratuit configure dans `.env.example`.
+
+Si OpenRouter est indisponible, Hugging Face est le fallback API prevu via `HF_API_TOKEN` et `HF_MODEL_ID`. Si aucune API n'est disponible, le provider `sample` permet de continuer offline a partir de sorties OCR texte simulees.
 
 Mode offline:
 
 ```bash
 python 04_pdf_ocr_agent/ocr_agent/cli.py --input 04_pdf_ocr_agent/samples/facture_stage_001.txt --type invoice --provider sample --output 04_pdf_ocr_agent/output.csv
+```
+
+Mode OpenRouter vision PDF:
+
+```bash
+python 04_pdf_ocr_agent/ocr_agent/cli.py --input 04_pdf_ocr_agent/samples/facture_stage_001.pdf --type invoice --provider openrouter --output 04_pdf_ocr_agent/openrouter_facture.csv
 ```
 
 ## Tests

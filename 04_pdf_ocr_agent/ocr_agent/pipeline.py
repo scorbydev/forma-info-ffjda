@@ -47,6 +47,8 @@ def extract_with_provider(
     provider: str,
 ) -> ExtractionResult:
     if provider == "sample":
+        if Path(path).suffix.lower() != ".txt":
+            raise ValueError("Le provider sample lit uniquement les fichiers .txt OCR simules. Utilisez openrouter pour PDF/image.")
         return sample_extract(path, document_type)
     if provider == "openrouter":
         from .provider_openrouter import extract
