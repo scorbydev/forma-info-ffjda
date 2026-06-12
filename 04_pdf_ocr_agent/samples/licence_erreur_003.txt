@@ -1,0 +1,8 @@
+DOCUMENT: LICENCE
+Nom: Martin
+Prenom: Lucas
+Numero licence: LIC-2026-0007
+Club: JC Mont-Riviere
+Saison: 2025/2026
+Anomalie: paiement indique valide mais statut licence a corriger
+

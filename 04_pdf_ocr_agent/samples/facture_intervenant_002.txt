@@ -1,0 +1,10 @@
+DOCUMENT: FACTURE
+Fournisseur: Intervenants Dojo Numerique
+Facture: FAC-2026-002
+Date: 2026-02-03
+Montant HT: 850.00
+TVA: 170.00
+Montant TTC: 1020.00
+Action: Intervention preparation evenement
+Centre de cout: EVENT-IT-TEST
+

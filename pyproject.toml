@@ -1,0 +1,12 @@
+[project]
+name = "forma-info-ffjda"
+version = "0.1.0"
+description = "Depot pedagogique sandbox pour ateliers IA agentique IT"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+addopts = "-p no:cacheprovider"
+testpaths = [
+  "03_devops_ci_cd/tests",
+  "04_pdf_ocr_agent/tests"
+]

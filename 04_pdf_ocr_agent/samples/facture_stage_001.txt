@@ -1,0 +1,10 @@
+DOCUMENT: FACTURE
+Fournisseur: Formation Tatami Conseil
+Facture: FAC-2026-001
+Date: 2026-01-15
+Montant HT: 1200.00
+TVA: 240.00
+Montant TTC: 1440.00
+Action: Stage arbitrage regional
+Centre de cout: FORM-REG-EST
+

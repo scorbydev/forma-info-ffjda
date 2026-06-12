@@ -1,0 +1,15 @@
+.venv/
+.venv*/
+__pycache__/
+*.pyc
+.env
+*.sqlite
+*.db
+output.csv
+output_*.csv
+output_test.csv
+outputs/
+.pytest_cache/
+.pytest_tmp/
+.tmp_quality/
+CONTEXT.md
