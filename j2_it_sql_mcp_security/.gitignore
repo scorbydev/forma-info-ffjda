@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.sqlite
+.env
+03_vercel_mcp/mini_app/node_modules/
+03_vercel_mcp/mini_app/dist/
+
